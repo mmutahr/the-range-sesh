@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+// App.jsx
+import "materialize-css/dist/css/materialize.min.css";
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Home from "./Home";
+import MentalGameDrills from "./MentalGameDrills";
+import SpinControlDrills from "./SpinControlDrills";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="container">
+        <header className="teal lighten-1">
+          <h1 className="white-text">The Range Sesh</h1>
+        </header>
+        <Routes>
+          <Route exact path="/" element={<Home />}></Route>
+          <Route path="/mental-game-drills" element={<MentalGameDrills />} />
+          <Route path="spin-control" element={<SpinControlDrills />} />
+        </Routes>
+        <footer className="teal darken-3">
+          <p className="white-text">Copyright The Range Sesh</p>
+        </footer>
+      </div>
+    </Router>
   );
-}
+};
 
 export default App;
